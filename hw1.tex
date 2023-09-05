@@ -1,0 +1,143 @@
+\documentclass[11pt,largemargins]{homework}
+
+\newcommand{\hwname}{Dwijen Chawra}
+\newcommand{\hwemail}{dchawra}
+\newcommand{\hwtype}{Homework}
+\newcommand{\hwnum}{1}
+\newcommand{\hwclass}{CS 180}
+\newcommand{\hwlecture}{}
+\newcommand{\hwsection}{}
+
+\begin{document}
+\maketitle
+
+\newpage
+\question
+
+  I, Dwijen Chawra, affirm that I have not given or received any
+  unauthorized help on this assignment and that this work is my own. What I have
+  submitted is expressed and explained in my own words. I have not used any online
+  websites that provide a solution. I will not post any parts of this problem set to any
+  online platform and doing so is a violation of course policy.
+  
+\newpage
+\question
+% problem 2
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $r$ & $(\neg r \rightarrow q)$  & $(p \vee \neg r)$ & $(\neg r \rightarrow q) \leftrightarrow (p \vee \neg r)$ \\ \hline
+  F & F & F & F & T & F \\ \hline
+  F & F & T & T & F & F \\ \hline
+  F & T & F & T & T & T \\ \hline
+  F & T & T & T & F & F \\ \hline
+  T & F & F & F & T & F \\ \hline
+  T & F & T & T & T & T \\ \hline
+  T & T & F & T & T & T \\ \hline
+  T & T & T & T & T & T \\ \hline
+
+\end{tabular}
+
+\newpage
+\question
+% 3
+  % a proposition that is always false using p and q without using and
+
+  $(q \vee \neg q) \rightarrow \neg (\neg p \vee p)$
+
+
+\newpage
+\question 
+% 4
+  $\neg (\neg p \land q) \land \neg (\neg q \land p)$
+
+\newpage
+\question
+%question 5
+  \begin{alphaparts}
+    \questionpart
+    $(p \land q) \lor (\neg p \lor q)$
+
+    Counter example: When p and q are F, then the proposition is F.
+
+    \questionpart
+    $(p \land q) \rightarrow ( p \lor q)$
+
+    
+    \begin{tabular}{cccc}
+      \\ 
+      $\neg (p \land q) \lor ( p \lor q)$ &&& $p \rightarrow q \equiv \neg p \lor q$ \\
+      &&& \\
+      
+      $\neg p \lor q \lor ( p \lor q)$ &&& De Morgan \\
+      &&& \\
+
+      $\neg p \lor p \lor q \lor q$ &&& Commutative Property \\
+      &&& \\
+
+      $T \lor q \lor q$ &&& Negation Law \\
+      &&& \\
+
+      $T \lor q$ &&& Domination Law \\
+      &&& \\
+
+      $T$ &&& Domination Law \\
+      &&& \\      
+    \end{tabular}
+
+    \questionpart
+      $(p \lor \neg q) \rightarrow q$
+
+        
+      \begin{tabular}{cccc}
+        \\ 
+        $\neg (p \lor \neg q) \lor q$ &&& $p \rightarrow q \equiv \neg p \lor q$ \\
+        &&& \\
+        
+        $\neg p \land \neg \neg q \lor q$ &&& De Morgan \\
+        &&& \\
+
+        $\neg p \land q \lor q$ &&& Double Negation \\
+        
+        \\      
+      \end{tabular}
+
+      Counter Example, when p is T and q is F, the proposition is F.
+
+    \questionpart
+      $(p \rightarrow q) \leftrightarrow q$
+
+        
+      \begin{tabular}{cccc}
+        \\ 
+        $\neg (p \lor \neg q) \lor q$ &&& $p \rightarrow q \equiv \neg p \lor q$ \\
+        &&& \\
+        
+        $\neg p \land \neg \neg q \lor q$ &&& De Morgan \\
+        &&& \\
+
+        $\neg p \land q \lor q$ &&& Double Negation \\
+        
+        \\      
+      \end{tabular}
+
+      
+      
+  \end{alphaparts}
+
+
+
+
+
+\newpage
+\setcounter{questionCounter}{7}
+\question
+  \begin{alphaparts}
+    \questionpart
+      Yes, because we know that 
+    \questionpart
+  \end{alphaparts}
+
+  
+
+
+\end{document}

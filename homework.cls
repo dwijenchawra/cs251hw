@@ -26,6 +26,7 @@
 \RequirePackage{amssymb}
 \RequirePackage{centernot}
 
+
 % Nice lists
 \RequirePackage{enumerate}
 \RequirePackage{enumitem}
@@ -37,6 +38,14 @@
 \RequirePackage{wrapfig}
 \RequirePackage{fancyvrb}
 \RequirePackage{listings}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{algpseudocode}
+\usepackage{alltt}
+
+
+
 
 % Conditionals
 \RequirePackage{ifthen}
@@ -55,7 +64,7 @@
 \newcounter{partCounter}[questionCounter]
 
 % Prefix for questions
-\newcommand{\questiontype}[0]{Question}
+\newcommand{\questiontype}[0]{Problem}
 
 % Use this if your "written" questions are all under one section
 % For example, if the homework handout has Section 5: Written Questions

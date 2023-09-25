@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.geometric}
+
+\begin{document}
+
+% Define the TikZ node style for matrix cells
+\tikzset{
+  cell/.style={
+    rectangle,
+    draw,
+    text width=1.5em,
+    text height=1.5em,
+    text depth=0.5em,
+    align=center,
+  },
+}
+
+% Define TikZ style for red arrows (swaps) and blue arrows (compares)
+\tikzset{
+  redarrow/.style={
+    -latex,
+    red,
+    thick,
+  },
+  bluearrow/.style={
+    -latex,
+    blue,
+    thick,
+  },
+}
+
+% Define TikZ node for matrix cells with text and a unique name
+\newcommand{\makenode}[3]{
+  \node[cell] (#1) at (#2) {#3};
+}
+
+\begin{equation}
+\begin{matrix}
+  \makenode{a}{0,0}{7} & \makenode{b}{1,0}{6} & \makenode{c}{2,0}{5} & \makenode{d}{3,0}{4} & \makenode{e}{4,0}{3} & \makenode{f}{5,0}{2} & \makenode{g}{6,0}{1} \\
+\end{matrix}
+\end{equation}
+
+\begin{tikzpicture}[overlay,remember picture]
+
+% Insertion sort algorithm with compares and swaps
+\foreach \i in {1,2,3,4,5,6} {
+  \pgfmathtruncatemacro{\j}{\i-1}
+  
+  \foreach \k in {a,b,c,d,e,f,g} {
+    \ifnum\k=\i
+      \pgfmathsetmacro{\posA}{\j}
+    \else
+      \ifnum\k=\j
+        \pgfmathsetmacro{\posA}{\i}
+      \else
+        \pgfmathsetmacro{\posA}{\k}
+      \fi
+    \fi
+    \path let \p1=($(#1.north)-(a.north)$) in
+    node[cell] at ([yshift=-\p1]a.north -| \k.south) {\posA};
+  }
+  
+  \ifnum\i>1
+    \pgfmathtruncatemacro{\j}{\i-1}
+    \pgfmathsetmacro{\swapA}{\i-1}
+    \pgfmathsetmacro{\swapB}{\i}
+    \draw[bluearrow] ([yshift=.5ex]a.north) to[bend left]node[above]{\scriptsize$\textcolor{blue!70!black}{i}<\textcolor{green!50!black}{j}$} ([yshift=.5ex]b.north);
+    \draw[redarrow] ([yshift=-.5ex]a.south) to[bend left]node[below]{\scriptsize$\textcolor{red}{\text{Swap}}$} ([yshift=-.5ex]b.south);
+    
+    \foreach \k in {a,b,c,d,e,f,g} {
+      \ifnum\k=\swapA
+        \pgfmathsetmacro{\posA}{\swapB}
+      \else
+        \ifnum\k=\swapB
+          \pgfmathsetmacro{\posA}{\swapA}
+        \else
+          \pgfmathsetmacro{\posA}{\k}
+        \fi
+      \fi
+      \path let \p1=($(#1.north)-(a.north)$) in
+      node[cell] at ([yshift=-\p1]a.north -| \k.south) {\posA};
+    }
+  \fi
+}
+
+\end{tikzpicture}
+
+\end{document}

@@ -40,9 +40,12 @@
 \RequirePackage{listings}
 \usepackage{amsmath}
 \usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{synttree}
 \usetikzlibrary{tikzmark}
 \usepackage{algpseudocode}
 \usepackage{alltt}
+\usepackage{drawstack}
 
 
 
@@ -211,3 +214,16 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % -----------------------------------------------------------------------------
+\newenvironment{verbatimcompact}[1][1.5]
+  {\def\verbatim@font{%
+     \linespread{#1}\normalfont\ttfamily% Updated definition
+     \gdef\verbatim@font{\normalfont\ttfamily}}% Revert to old definition
+   \verbatim}
+  {\endverbatim}
+
+\newcommand{\nextverbatimspread}[1]{%
+  \def\verbatim@font{%
+    \linespread{#1}\normalfont\ttfamily% Updated definition
+    \gdef\verbatim@font{\normalfont\ttfamily}}% Revert to old definition
+}
+\makeatother

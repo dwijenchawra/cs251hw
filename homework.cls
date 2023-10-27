@@ -46,6 +46,8 @@
 \usepackage{algpseudocode}
 \usepackage{alltt}
 \usepackage{drawstack}
+\usepackage{mathtools}
+
 
 
 
@@ -227,3 +229,6 @@
     \gdef\verbatim@font{\normalfont\ttfamily}}% Revert to old definition
 }
 \makeatother
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
